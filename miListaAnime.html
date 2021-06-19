@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>miListaAnime</title>
+		<link rel="icon" href="assets/favicon.png" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+	</head>
+	<body>
+		<div class="gradient">
+			<header class="header">
+				<nav class="nav">
+					<a href="index.html" class="nav__link">Inicio</a>
+					<a href="#" class="nav__link nav__link--active"
+						>miListaAnime</a
+					>
+				</nav>
+			</header>
+			<main class="main">
+				<table class="animes">
+					<thead>
+						<tr>
+							<th>Animes agregados</th>
+						</tr>
+					</thead>
+					<tbody id="tbody"></tbody>
+				</table>
+			</main>
+		</div>
+		<template id="templateRow">
+			<tr>
+				<td class="anime">
+					<img src="assets/anime.jpg" alt="" class="anime__img" />
+					<div class="anime__info">
+						<a
+							href="#"
+							class="anime__title"
+							title="Ver anime"
+							target="_blank"
+							rel="noopener noreferrer"
+						></a>
+						<p class="anime__description"></p>
+					</div>
+					<div class="anime__options">
+						<a
+							href="#"
+							class="anime__delete"
+							title="Eliminar anime"
+							data-id=""
+						></a>
+					</div>
+				</td>
+			</tr>
+		</template>
+		<script src="js/miListaAnime.js" type="module"></script>
+	</body>
+</html>

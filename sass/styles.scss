@@ -1,0 +1,332 @@
+$fuente: "Raleway", sans-serif;
+$fuente-numeros: "Open Sans", sans-serif;
+
+html {
+	box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: $fuente;
+	background-image: url(../assets/background.jpg);
+	background-size: cover;
+	min-height: 100vh;
+	width: 100%;
+}
+body::-webkit-scrollbar {
+	width: 12px;
+}
+body::-webkit-scrollbar-thumb {
+	background-color: rgba(255, 255, 255, 0.4);
+}
+body::-webkit-scrollbar-track {
+	background-color: rgba(15, 12, 41, 0.95);
+}
+.gradient {
+	background: rgba(15, 12, 41, 0.85); /* fallback for old browsers */
+	background: -webkit-linear-gradient(
+		to right,
+		rgba(36, 36, 62, 0.85),
+		rgba(48, 43, 99, 0.85),
+		rgba(15, 12, 41, 0.85)
+	); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		rgba(36, 36, 62, 0.85),
+		rgba(48, 43, 99, 0.85),
+		rgba(15, 12, 41, 0.85)
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	min-height: 100vh;
+	width: 100%;
+}
+.spinner {
+	display: flex;
+	justify-content: center;
+	&::after {
+		content: "";
+		width: 45px;
+		height: 45px;
+		border: 2px solid rgba(15, 12, 41, 0.85);
+		border-left: transparent;
+		border-radius: 50%;
+		animation: girar 1s linear;
+		animation-iteration-count: infinite;
+	}
+}
+@keyframes girar {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+.alerta {
+	position: fixed;
+	right: 24px;
+	bottom: 24px;
+	height: 48px;
+	min-width: 320px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.error {
+	background-color: rgb(150, 50, 50);
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	color: white;
+}
+.correcto {
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	background-color: rgb(50, 150, 50);
+	color: white;
+}
+.header {
+	height: 64px;
+	border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.nav {
+	.nav__link {
+		color: white;
+		text-decoration: none;
+		font-size: 20px;
+		margin: 0px 4px;
+	}
+	.nav__link--active {
+		position: relative;
+		&::after {
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			content: "";
+			width: 100%;
+			height: 2px;
+			background-color: rgba(255, 255, 255, 0.2);
+		}
+	}
+}
+.form {
+	max-width: 480px;
+	margin: 36px auto;
+	display: flex;
+	flex-direction: column;
+	padding: 0 16px;
+}
+.form__campo {
+	margin-bottom: 8px;
+}
+.form__input {
+	height: 48px;
+	font-family: inherit;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	background-color: transparent;
+	padding: 8px 10px;
+	width: 100%;
+	color: white;
+	border-radius: 5px;
+	&::placeholder {
+		color: white;
+	}
+	&:focus {
+		border-radius: 0px;
+		outline: 1px solid rgba(255, 255, 255, 0.5);
+	}
+}
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px transparent inset;
+}
+.form__submit {
+	width: 120px;
+	align-self: flex-end;
+	height: 36px;
+	font-family: inherit;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	background-color: transparent;
+	padding: 8px 10px;
+	color: white;
+	border-radius: 5px;
+	&:focus {
+		border-radius: 0px;
+		outline: 1px solid rgba(255, 255, 255, 0.5);
+	}
+	&:hover {
+		cursor: pointer;
+	}
+}
+.main {
+	max-width: 1024px;
+	margin: auto;
+	padding: 0px 16px;
+	padding-bottom: 24px;
+}
+.busqueda {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 16px;
+	padding-bottom: 24px;
+	margin-top: 24px;
+}
+.busqueda__item {
+	flex: 1 1 auto;
+	max-width: 225px;
+	max-height: 320px;
+	position: relative;
+}
+.busqueda__item:hover {
+	opacity: 1;
+}
+.busqueda__img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+.busqueda__anime {
+	position: absolute;
+	min-height: 32px;
+	width: 100%;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(15, 12, 41, 0.95);
+	color: white;
+	text-transform: capitalize;
+	text-align: center;
+	padding: 10px;
+}
+.busqueda__favorite {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	top: 8px;
+	left: 8px;
+}
+.busqueda__favorite::after,
+.busqueda__favorite--active::after {
+	content: "favorite_border";
+	font-family: "Material Icons";
+	color: rgb(247, 55, 55);
+	font-size: 36px;
+}
+.busqueda__favorite--active::after {
+	content: "favorite";
+}
+.busqueda__favorite:hover {
+	cursor: pointer;
+}
+
+.paginador {
+	height: 36px;
+	max-width: 768px;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.paginador__link {
+	color: white;
+	text-decoration: none;
+	font-family: $fuente-numeros;
+	height: 100%;
+	width: 36px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 5px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.paginador__link--active {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+// Table
+.animes {
+	margin: auto;
+	margin-top: 24px;
+	width: 100%;
+	color: white;
+	border-collapse: collapse;
+	thead {
+		border-bottom: 4px solid rgba(255, 255, 255, 0.5);
+		background-color: rgba(15, 12, 41, 0.95);
+		th {
+			padding: 16px;
+			font-size: 18px;
+			&:first-child {
+				width: 70%;
+			}
+		}
+	}
+	tbody {
+		tr {
+			background-color: rgba(48, 43, 99, 0.85);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+		td.anime {
+			height: 120px;
+			display: flex;
+			padding: 12px;
+			font-size: 18px;
+			.anime__info {
+				margin-left: 8px;
+				width: 100%;
+				.anime__title {
+					display: inline-block;
+					color: white;
+					text-decoration: none;
+					font-size: 20px;
+					margin-bottom: 4px;
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+				.anime__description {
+					font-size: 16px;
+					display: -webkit-box;
+					-webkit-line-clamp: 4;
+					/* autoprefixer: off */
+					-webkit-box-orient: vertical;
+					/* autoprefixer: on */
+					line-clamp: 4;
+					overflow: hidden;
+					line-height: 1.1;
+				}
+			}
+			.anime__img {
+				height: 100%;
+			}
+			.anime__options {
+				flex-basis: 60px;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				.anime__delete,
+				.anime__edit {
+					color: white;
+					text-decoration: none;
+				}
+				.anime__delete::after,
+				.anime__edit::after {
+					content: "delete";
+					font-family: "Material Icons";
+					font-size: 24px;
+				}
+				.anime__edit::after {
+					content: "edit";
+				}
+			}
+		}
+	}
+}

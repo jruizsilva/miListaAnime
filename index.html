@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>miListaAnime</title>
+		<link rel="icon" href="assets/favicon.png" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+	</head>
+	<body>
+		<div class="gradient">
+			<header class="header">
+				<nav class="nav">
+					<a href="#" class="nav__link nav__link--active">Inicio</a>
+					<a href="miListaAnime.html" class="nav__link"
+						>miListaAnime</a
+					>
+				</nav>
+			</header>
+			<form action="" class="form" id="form" autocomplete="off">
+				<div class="form__campo">
+					<input
+						type="text"
+						name="anime"
+						placeholder="Buscar anime"
+						class="form__input"
+					/>
+				</div>
+				<input type="submit" class="form__submit" value="Buscar" />
+			</form>
+			<main class="main">
+				<ul class="busqueda" id="result"></ul>
+			</main>
+			<div class="alerta"></div>
+		</div>
+		<template id="templateItem">
+			<li class="busqueda__item" data-id="">
+				<img src="" class="busqueda__img" />
+				<h3 class="busqueda__anime"></h3>
+				<a href="#" class="busqueda__favorite"></a>
+			</li>
+		</template>
+		<template id="templatePaginador">
+			<nav class="paginador" id="paginador">
+				<a
+					href="#"
+					class="paginador__link paginador__link--active"
+					data-page="1"
+					>1</a
+				><a href="#" class="paginador__link" data-page="2">2</a
+				><a href="#" class="paginador__link" data-page="3">3</a>
+			</nav>
+		</template>
+		<script src="js/index.js" type="module"></script>
+	</body>
+</html>
