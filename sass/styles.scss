@@ -122,6 +122,12 @@ body::-webkit-scrollbar-track {
 .form__campo {
 	margin-bottom: 8px;
 }
+.form__label {
+	font-size: 14px;
+	color: white;
+	display: block;
+	margin-bottom: 4px;
+}
 .form__input {
 	height: 48px;
 	font-family: inherit;
@@ -139,8 +145,25 @@ body::-webkit-scrollbar-track {
 		outline: 1px solid rgba(255, 255, 255, 0.5);
 	}
 }
-input:-webkit-autofill {
-	-webkit-box-shadow: 0 0 0px 1000px transparent inset;
+.form__select {
+	height: 48px;
+	font-family: inherit;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	background-color: transparent;
+	padding: 8px 10px;
+	width: 100%;
+	color: white;
+	border-radius: 5px;
+	&::placeholder {
+		color: white;
+	}
+	&:focus {
+		border-radius: 0px;
+		outline: 1px solid rgba(255, 255, 255, 0.5);
+	}
+}
+.form__option {
+	background-color: rgb(48, 43, 99);
 }
 .form__submit {
 	width: 120px;

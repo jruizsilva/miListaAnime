@@ -1,12 +1,13 @@
 import { mostrarAlerta } from "./UI/mostrarAlerta.js";
 
 const d = document;
-export let db = null;
-let tbody;
+export let animes = [];
+let db = null;
+let $tbody = null;
 
 const limpiarHTML = () => {
-	while (tbody.firstChild) {
-		tbody.removeChild(tbody.firstChild);
+	while ($tbody.firstChild) {
+		$tbody.removeChild($tbody.firstChild);
 	}
 };
 
@@ -20,8 +21,21 @@ export const obtenerAnimesDB = () => {
 		const cursor = request.result;
 		if (cursor) {
 			const { value: anime } = cursor;
-			const { title, image_url, mal_id, synopsis } = anime;
-			$template.querySelector(".anime__title").textContent = title;
+			animes = [...animes, anime];
+			const { title, image_url, url, mal_id, synopsis, airing } = anime;
+			if (airing) {
+				$template.querySelector(
+					".anime__title"
+				).textContent = `${title} - En emision`;
+			} else {
+				$template.querySelector(
+					".anime__title"
+				).textContent = `${title} - Finalizado`;
+			}
+			$template.querySelector(".anime__title").setAttribute("href", url);
+			$template
+				.querySelector(".anime__title")
+				.setAttribute("data-airing", airing);
 			$template.querySelector(".anime__description").textContent =
 				synopsis;
 			$template.querySelector(".anime__img").src = image_url;
@@ -33,7 +47,7 @@ export const obtenerAnimesDB = () => {
 	});
 	tx.addEventListener("complete", () => {
 		limpiarHTML();
-		tbody.appendChild($fragment);
+		$tbody.appendChild($fragment);
 	});
 };
 export const agregarAnimeDB = (anime) => {
@@ -55,8 +69,8 @@ export const removerAnimeDB = (mal_id) => {
 		mostrarAlerta("Eliminado correctamente", "error")
 	);
 	tx.addEventListener("complete", () => {
-		tbody = d.getElementById("tbody");
-		if (!tbody) return;
+		$tbody = d.getElementById("tbody");
+		if (!$tbody) return;
 		obtenerAnimesDB();
 	});
 };
@@ -64,8 +78,8 @@ export const crearDB = () => {
 	const request = window.indexedDB.open("Anime", 1);
 	request.addEventListener("success", () => {
 		db = request.result;
-		tbody = d.getElementById("tbody");
-		if (!tbody) return;
+		$tbody = d.getElementById("tbody");
+		if (!$tbody) return;
 		obtenerAnimesDB();
 	});
 	request.addEventListener("upgradeneeded", () => {

@@ -32,10 +32,27 @@
 				</nav>
 			</header>
 			<main class="main">
+				<form class="form">
+					<div class="form__campo">
+						<label for="tipo" class="form__label">Estado</label>
+						<select name="estado" id="estado" class="form__select">
+							<option value="todos" class="form__option">
+								Todos
+							</option>
+							<option value="finalizado" class="form__option">
+								Finalizado
+							</option>
+							<option value="emision" class="form__option">
+								En Emisión
+							</option>
+						</select>
+					</div>
+					<input type="submit" class="form__submit" value="Filtrar" />
+				</form>
 				<table class="animes">
 					<thead>
 						<tr>
-							<th>Animes agregados</th>
+							<th class="animes__th">Animes agregados</th>
 						</tr>
 					</thead>
 					<tbody id="tbody"></tbody>
