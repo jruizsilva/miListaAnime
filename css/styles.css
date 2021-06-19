@@ -328,6 +328,7 @@ input:-webkit-autofill {
 }
 
 .animes tbody td.anime .anime__info .anime__description {
+  padding-bottom: 1px;
   font-size: 16px;
   display: -webkit-box;
   -webkit-line-clamp: 4;
